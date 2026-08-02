@@ -2,7 +2,8 @@
 
 A single-page, high-conversion sales landing page for the "50 Kids Stories Mega
 Bundle" digital product. Fully static — no backend, no database, no auth. Every
-CTA links out to an external checkout URL.
+CTA links out to an external checkout URL. Styled in the ProdX Store brand:
+black backgrounds, orange gradient accents.
 
 Stack: **Vite + React + TypeScript + Tailwind CSS**.
 
@@ -70,7 +71,8 @@ src/
   index.css                Tailwind entry + smooth-scroll
   lib/pixel.ts              trackPixelEvent() helper (safe no-op if no Pixel ID)
   components/
-    Header.tsx              Sticky header w/ mobile compact CTA
+    PromoBar.tsx             Slim orange launch-price announcement bar
+    Header.tsx              Sticky dark header w/ desktop nav + mobile compact CTA
     Hero.tsx                 Above-the-fold hero + price anchor
     TrustStrip.tsx           Quick badge row
     ProblemSolution.tsx      Problem → solution section
@@ -91,15 +93,23 @@ scripts/
   gen-placeholders.mjs      One-off script that generated the placeholder PNGs
 ```
 
+## Logo
+
+`public/logo.svg` (full lockup with tagline, used in the footer) and
+`public/logo-compact.svg` (wordmark only, used in the sticky header where
+there isn't room for the tagline to stay legible) are a hand-built SVG
+recreation of the ProdX Store logo — black/white/orange wordmark, orange "X",
+thin gradient underline with a dot, uppercase tagline. If you have the exact
+source logo file, drop it in as `public/logo.svg` and `public/logo-compact.svg`
+(same filenames, any raster or vector format works) — no code changes needed.
+
 ## Placeholder images
 
-`public/logo.png`, `public/hero-mockup.png`, and `public/sample-1.png`
-through `sample-6.png` are simple generated placeholders so the project runs
-and looks structured out of the box. Swap them with your real logo, hero
-mockup, and sample story pages — keep the same filenames and the page needs
-no code changes. Recommended sizes:
+`public/hero-mockup.png` and `public/sample-1.png` through `sample-6.png` are
+simple generated placeholders so the project runs and looks structured out of
+the box. Swap them with your real hero mockup and sample story pages — keep
+the same filenames and the page needs no code changes. Recommended sizes:
 
-- `logo.png` — wide lockup, ~480×160 (any aspect works, height is fixed by CSS)
 - `hero-mockup.png` — ~900×700, product/stack mockup
 - `sample-1.png` … `sample-6.png` — ~640×800 (portrait, 4:5), story page previews
 

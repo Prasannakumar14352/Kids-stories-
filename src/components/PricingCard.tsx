@@ -4,9 +4,9 @@ import { PRODUCT } from "../constants";
 
 export default function PricingCard() {
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 sm:py-20">
+    <section className="bg-surface px-4 py-16 sm:px-6 sm:py-20">
       <FadeIn className="mx-auto max-w-lg">
-        <div className="rounded-3xl bg-ink p-8 text-center text-white shadow-2xl sm:p-10">
+        <div className="rounded-3xl border border-orange-DEFAULT/30 bg-ink p-8 text-center text-white shadow-2xl shadow-orange-500/10 sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-DEFAULT">
             Limited-time launch price
           </p>

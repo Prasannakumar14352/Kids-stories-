@@ -21,10 +21,10 @@ const benefits = [
 
 export default function WhyParents() {
   return (
-    <section className="bg-ink/[0.02] py-16 sm:py-20">
+    <section className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn className="text-center">
-          <h2 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             Why parents love it
           </h2>
           <Divider className="my-5" />
@@ -33,11 +33,11 @@ export default function WhyParents() {
         <div className="grid gap-6 sm:grid-cols-3">
           {benefits.map((b, i) => (
             <FadeIn key={b.title} delayMs={i * 80} className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-gradient text-3xl text-white shadow-md">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-gradient text-3xl text-white shadow-lg shadow-orange-500/20">
                 <span aria-hidden="true">{b.icon}</span>
               </div>
-              <h3 className="mt-4 font-heading text-lg font-bold text-ink">{b.title}</h3>
-              <p className="mt-2 text-sm text-ink/65">{b.desc}</p>
+              <h3 className="mt-4 font-heading text-lg font-bold text-white">{b.title}</h3>
+              <p className="mt-2 text-sm text-white/60">{b.desc}</p>
             </FadeIn>
           ))}
         </div>

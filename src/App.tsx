@@ -1,3 +1,4 @@
+import PromoBar from "./components/PromoBar";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
@@ -16,6 +17,7 @@ import StickyMobileCta from "./components/StickyMobileCta";
 export default function App() {
   return (
     <div className="pb-20 sm:pb-0">
+      <PromoBar />
       <Header />
       <main>
         <Hero />

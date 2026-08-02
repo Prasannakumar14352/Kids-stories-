@@ -129,39 +129,36 @@ const ORANGE_DARK = [244, 81, 30];
 const INK = [14, 15, 19];
 const WHITE = [255, 255, 255];
 
-// logo.png — simple wordmark-style lockup: black rounded tile + orange "X" bars
-{
-  const w = 480, h = 160;
-  const rows = makeCanvas(w, h, WHITE);
-  fillRect(rows, 0, 0, 140, h, INK);
-  fillRectAlpha(rows, 20, 30, 100, 14, ORANGE, 1);
-  fillRectAlpha(rows, 20, 73, 100, 14, ORANGE, 1);
-  fillRectAlpha(rows, 20, 116, 100, 14, ORANGE, 1);
-  fillRect(rows, 165, 55, 260, 20, INK);
-  fillRect(rows, 165, 90, 160, 12, [154, 160, 166]);
-  save("logo.png", w, h, rows);
-}
+// Note: the ProdX Store wordmark lives in public/logo.svg (hand-built, not generated here).
 
-// hero-mockup.png — fanned stack of story-cover cards on an orange gradient backdrop
+// hero-mockup.png — fanned stack of dark story-cover cards on a black/orange-glow backdrop
 {
   const w = 900, h = 700;
-  const rows = verticalGradient(w, h, ORANGE_LIGHT, ORANGE_DARK);
-  const cardColors = [
-    [255, 255, 255],
-    [255, 244, 235],
-    [255, 255, 255],
-    [255, 236, 219],
-    [255, 255, 255],
-  ];
+  const rows = makeCanvas(w, h, INK);
+  // soft orange glow behind the stack
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx = (x - w * 0.55) / (w * 0.5);
+      const dy = (y - h * 0.35) / (h * 0.5);
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const alpha = Math.max(0, 0.35 - dist * 0.35);
+      if (alpha > 0) {
+        rows[y][x * 3] = Math.min(255, rows[y][x * 3] + ORANGE_LIGHT[0] * alpha);
+        rows[y][x * 3 + 1] = Math.min(255, rows[y][x * 3 + 1] + ORANGE_LIGHT[1] * alpha * 0.6);
+        rows[y][x * 3 + 2] = Math.min(255, rows[y][x * 3 + 2] + ORANGE_LIGHT[2] * alpha * 0.3);
+      }
+    }
+  }
   const cardW = 260, cardH = 380;
   const centers = [-260, -130, 0, 130, 260];
   centers.forEach((offset, i) => {
     const x = Math.round(w / 2 - cardW / 2 + offset * 0.75);
     const y = Math.round(h / 2 - cardH / 2 + Math.abs(offset) * 0.12);
-    fillRect(rows, x - 4, y - 4, cardW + 8, cardH + 8, INK);
-    fillRect(rows, x, y, cardW, cardH, cardColors[i]);
+    fillRect(rows, x - 2, y - 2, cardW + 4, cardH + 4, [255, 255, 255]);
+    fillRectAlpha(rows, x - 2, y - 2, cardW + 4, cardH + 4, ORANGE, 0.25);
+    fillRect(rows, x, y, cardW, cardH, [24, 25, 31]);
     fillRect(rows, x + 20, y + 24, cardW - 40, cardH - 140, ORANGE);
-    fillRect(rows, x + 20, y + cardH - 96, cardW - 40, 14, INK);
+    fillRect(rows, x + 20, y + cardH - 96, cardW - 40, 14, WHITE);
     fillRect(rows, x + 20, y + cardH - 66, cardW - 80, 10, [154, 160, 166]);
   });
   save("hero-mockup.png", w, h, rows);

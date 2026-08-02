@@ -14,10 +14,10 @@ const items = [
 
 export default function ValueStack() {
   return (
-    <section className="bg-ink/[0.02] py-16 sm:py-20">
+    <section id="whats-inside" className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn className="text-center">
-          <h2 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             Everything inside the bundle
           </h2>
           <Divider className="my-5" />
@@ -26,14 +26,14 @@ export default function ValueStack() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (
             <FadeIn key={item.title} delayMs={i * 60}>
-              <div className="h-full rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-                <span className="text-3xl" aria-hidden="true">
+              <div className="h-full rounded-2xl border border-white/10 bg-ink p-6 transition-colors hover:border-orange-DEFAULT/40">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-DEFAULT/10 text-2xl" aria-hidden="true">
                   {item.icon}
                 </span>
-                <h3 className="mt-3 font-heading text-base font-bold text-ink">
+                <h3 className="mt-4 font-heading text-base font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-sm text-ink/65">{item.desc}</p>
+                <p className="mt-1 text-sm text-white/60">{item.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -41,10 +41,10 @@ export default function ValueStack() {
 
         <FadeIn className="mt-12 flex flex-col items-center gap-4 text-center">
           <div className="flex items-center gap-3">
-            <span className="text-lg font-medium text-ink/60 line-through">
+            <span className="text-lg font-medium text-white/50 line-through">
               {PRODUCT.priceOriginal}
             </span>
-            <span className="font-heading text-3xl font-extrabold text-orange-DEFAULT">
+            <span className="font-heading text-3xl font-extrabold text-orange-from">
               {PRODUCT.priceCurrent}
             </span>
           </div>

@@ -8,10 +8,10 @@ const samples = Array.from({ length: 6 }, (_, i) => ({
 
 export default function SamplePreview() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section id="sample-stories" className="bg-ink py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn className="text-center">
-          <h2 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             A peek inside the bundle
           </h2>
           <Divider className="my-5" />
@@ -30,7 +30,7 @@ export default function SamplePreview() {
                 loading="lazy"
                 width={640}
                 height={800}
-                className="aspect-[4/5] w-full rounded-xl border border-black/5 object-cover shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+                className="aspect-[4/5] w-full rounded-xl border border-white/10 object-cover shadow-lg shadow-black/40 transition-transform hover:-translate-y-1 hover:border-orange-DEFAULT/40"
               />
             </FadeIn>
           ))}

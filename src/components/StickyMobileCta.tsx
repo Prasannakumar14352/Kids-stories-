@@ -3,7 +3,7 @@ import { trackPixelEvent } from "../lib/pixel";
 
 export default function StickyMobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-black/10 bg-white/95 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-md sm:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink/95 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.4)] backdrop-blur-md sm:hidden">
       <a
         href={CHECKOUT_URL}
         target="_blank"

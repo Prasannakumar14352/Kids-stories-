@@ -33,16 +33,16 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section id="faq" className="bg-ink py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <FadeIn className="text-center">
-          <h2 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             Frequently asked questions
           </h2>
           <Divider className="my-5" />
         </FadeIn>
 
-        <div className="divide-y divide-black/5 rounded-2xl border border-black/5">
+        <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-surface">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -50,14 +50,14 @@ export default function Faq() {
                 <h3>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-heading text-sm font-bold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-DEFAULT sm:text-base"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-heading text-sm font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-DEFAULT sm:text-base"
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${i}`}
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                   >
                     <span>{item.q}</span>
                     <span
-                      className={`shrink-0 text-xl text-orange-DEFAULT transition-transform ${isOpen ? "rotate-45" : ""}`}
+                      className={`shrink-0 text-xl text-orange-from transition-transform ${isOpen ? "rotate-45" : ""}`}
                       aria-hidden="true"
                     >
                       +
@@ -69,7 +69,7 @@ export default function Faq() {
                   role="region"
                   className={`grid overflow-hidden transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                 >
-                  <div className="overflow-hidden px-5 pb-4 text-sm text-ink/70">
+                  <div className="overflow-hidden px-5 pb-4 text-sm text-white/65">
                     {item.a}
                   </div>
                 </div>

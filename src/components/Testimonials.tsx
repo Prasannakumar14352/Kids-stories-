@@ -34,10 +34,10 @@ function Stars() {
 
 export default function Testimonials() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section id="reviews" className="bg-ink py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn className="text-center">
-          <h2 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             Loved by parents everywhere
           </h2>
           <Divider className="my-5" />
@@ -46,14 +46,14 @@ export default function Testimonials() {
         <div className="grid gap-6 sm:grid-cols-3">
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delayMs={i * 80}>
-              <figure className="flex h-full flex-col rounded-2xl border border-black/5 bg-ink/[0.02] p-6">
+              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-surface p-6">
                 <Stars />
-                <blockquote className="mt-3 flex-1 text-sm text-ink/75">
+                <blockquote className="mt-3 flex-1 text-sm text-white/75">
                   "{t.quote}"
                 </blockquote>
-                <figcaption className="mt-4 text-sm font-bold text-ink">
+                <figcaption className="mt-4 text-sm font-bold text-white">
                   {t.name}{" "}
-                  <span className="font-normal text-ink/60">— {t.city}</span>
+                  <span className="font-normal text-white/50">— {t.city}</span>
                 </figcaption>
               </figure>
             </FadeIn>
